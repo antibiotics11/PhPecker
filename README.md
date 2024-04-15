@@ -39,3 +39,7 @@ sudo php -f phpecker.php output /dev/tty except destroy
 This code is intended for educational purposes only. <br>
 It is designed to simulate network security scenarios for learning purposes. <br>
 Any unauthorized use of this code for malicious activities is strictly prohibited.
+
+## Screenshot
+
+![screenshot](https://github.com/antibiotics11/PhPecker/assets/75349747/56b63b95-ef26-4dba-9346-57ec97dcbede)
