@@ -1,45 +1,37 @@
 # PhPecker
 
-PhPecker is a PHP-based <a href="https://en.wikipedia.org/wiki/Computer_worm">worm</a> designed to spread through networks and infect Linux servers, potentially causing damage.
+## ⚠️ Disclaimer ⚠️ 
+**This is an experimental PHP script, written out of curiosity after reading hacking fiction. <br />
+It simulates how a simple worm might behave on a network. <br />
+Not for real-world use. Running it on unauthorized systems is strictly prohibited.**
 
-## How PhPecker works
+## What it is
+A single PHP script (about 700 lines) that simulates how a worm might spread across a network.
 
-PhPecker consists of several functions:
+## Features
+### spread()
+- Attempts to propagate via SSH connections to other hosts
+- Installs the PHP runtime on vulnerable machines and replicates itself
+- Sends a “hi mom” message back to the source host upon successful infection
 
-### spread() Function
+### listen()
+- Listens for “hi” and “hi mom” messages on the network
 
-spread() attempts to spread the worm by SSH-ing into other hosts on the network. <br>
-It scans the network for vulnerable hosts and, upon successful password exploitation, installs the PHP runtime and replicates itself. <br>
-Infected hosts then greet ("hi mom") the host that infected them before proceeding to infect others. <br>
+### destroy()
+- Simulates destructive behavior on the host
 
-### listen() Function
+## Requirements 
+- PHP >= 7.3.0
+- php-ssh2
 
-listen() responds to greetings ("hi") sent by infected hosts or receives greetings ("hi mom") sent by hosts it has infected. <br>
-By receiving these responses, it can determine whether a host is already infected.
-
-### destroy() Function
-
-destroy() is designed to destroy the current host.
-
-## Execution
-
-PhPecker requires PHP >= 7.3.0 and php-ssh2 extension.
-
+## Usage
 ```bash
 sudo php -f phpecker.php output /dev/tty except destroy
 ```
 
 ### CLI Options
-
-- output: Specifies the device to output the worm's logs.
-- except: Excludes a specific task from being performed on the current host.
-
-## Warning
-
-This code is intended for educational purposes only. <br>
-It is designed to simulate network security scenarios for learning purposes. <br>
-Any unauthorized use of this code for malicious activities is strictly prohibited.
+- output: specifies the output device for logs
+- except: excludes a specific task from being performed on the current host
 
 ## Screenshot
-
 ![screenshot](https://github.com/antibiotics11/PhPecker/assets/75349747/56b63b95-ef26-4dba-9346-57ec97dcbede)
